@@ -39,11 +39,57 @@
       <li>A real meal idea that fits a real schedule</li>
       <li>Quick reference table you'll actually keep</li>
     </ul>
-    <form class="guide-form" action="#" method="post">
-      <input type="email" name="email" placeholder="Your email address" required>
-      <button type="submit" class="btn btn-primary">Send me the guide</button>
+    <form id="guide-signup-form" class="guide-form" action="javascript:void(0)" method="post">
+      <input type="email" name="email" id="guide-email" placeholder="Your email address" required>
+      <button type="submit" id="guide-submit-btn" class="btn btn-primary">Send me the guide</button>
     </form>
-    <p class="form-note">No spam. Unsubscribe any time. Just honest gut health content.</p>
+    <p class="form-note" id="guide-form-note">No spam. Unsubscribe any time. Just honest gut health content.</p>
+
+    <script>
+      (function () {
+        const form = document.getElementById('guide-signup-form');
+        const emailInput = document.getElementById('guide-email');
+        const submitBtn = document.getElementById('guide-submit-btn');
+        const noteEl = document.getElementById('guide-form-note');
+        const defaultNote = noteEl.textContent;
+
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const email = emailInput.value.trim();
+          if (!email) return;
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          noteEl.textContent = defaultNote;
+          noteEl.style.color = '';
+
+          try {
+            const res = await fetch('https://cgc-guide-signup.ryan-ninness68.workers.dev/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email }),
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+              form.style.display = 'none';
+              noteEl.textContent = "Check your email to confirm — your guide is on the way.";
+              noteEl.style.color = 'var(--ember-bright)';
+            } else {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send me the guide';
+              noteEl.textContent = "Something went wrong. Please try again in a moment.";
+              noteEl.style.color = 'var(--ember)';
+            }
+          } catch (err) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send me the guide';
+            noteEl.textContent = "Something went wrong. Please try again in a moment.";
+            noteEl.style.color = 'var(--ember)';
+          }
+        });
+      })();
+    </script>
   </div>
 </div>
 

@@ -3,159 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clean Gut Co. — Feel Like Yourself Again</title>
-<meta name="description" content="Research-backed gut health from someone who spent years feeling tired, foggy, and off — and finally figured out why. Real food. Real research. No blueprint required.">
+<title>Clean Gut Co. — Gut health. Real food. No pressure.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A1208;--bg-card:#111A0F;--bg-section:#0D1A0B;
+  --sage:#8B9E76;--sage-mid:#6B8A58;--sage-dim:#4A6B42;
+  --harvest:#D4622A;--ember:#C0392B;
+  --parch:#F5EFE0;--sand:#E8D5B7;
+  --text:#F0EBE0;--text-mid:#B8A890;--text-dim:#7A6A55;--text-muted:#4A3A28;
+  --border:rgba(139,158,118,.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.serif{font-family:'Playfair Display',Georgia,serif}
+.source{font-family:'Source Serif 4',Georgia,serif}
+.eyebrow{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:66px;background:rgba(8,14,6,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--parch);letter-spacing:-.2px;}
+.nav-logo img{width:26px;height:auto;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;}
+.nav-links a:hover{color:var(--parch)}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--sage-dim);color:var(--parch);padding:10px 24px;transition:background .25s;}
+.nav-cta:hover{background:var(--sage-mid)}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(139,158,118,.08),transparent 65%),radial-gradient(ellipse at 20% 80%,rgba(192,57,43,.06),transparent 55%),var(--bg);}
+.hero-content{position:relative;z-index:2;padding:120px 52px 80px;max-width:700px;}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.hero-line{width:32px;height:1.5px;background:var(--sage);}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,80px);font-weight:700;line-height:1.05;color:var(--parch);margin-bottom:12px;letter-spacing:-.02em;}
+.hero-title em{font-style:italic;color:var(--sage);}
+.hero-sub{font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);font-style:italic;color:var(--text-mid);line-height:1.65;margin-bottom:20px;max-width:480px;}
+.hero-divider{width:48px;height:1px;background:linear-gradient(to right,var(--sage-dim),transparent);margin-bottom:24px;}
+.hero-desc{font-family:'Source Serif 4',serif;font-size:16px;line-height:1.9;color:var(--text-mid);max-width:460px;margin-bottom:40px;}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.badge{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(139,158,118,.3);color:var(--text-dim);}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--sage-dim);color:var(--parch);padding:14px 30px;display:inline-block;transition:background .25s;}
+.btn-primary:hover{background:var(--sage-mid)}
+.btn-ghost{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);padding:13px 24px;border:1px solid rgba(139,158,118,.25);display:inline-block;transition:all .25s;}
+.btn-ghost:hover{color:var(--parch);border-color:rgba(139,158,118,.5)}
+
+.products{padding:100px 52px;border-bottom:1px solid var(--border);}
+.section-eyebrow{display:block;margin-bottom:14px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(30px,3.8vw,48px);font-weight:700;line-height:1.1;color:var(--parch);margin-bottom:48px;}
+.section-title em{font-style:italic;color:var(--sage);}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.product-card{background:var(--bg-card);padding:0;text-decoration:none;display:block;transition:background .3s;position:relative;overflow:hidden;}
+.product-card:hover{background:#162014}
+.product-img{width:100%;aspect-ratio:4/3;object-fit:cover;opacity:.88;transition:opacity .3s;}
+.product-card:hover .product-img{opacity:1}
+.product-body{padding:28px 28px 32px;}
+.product-badge{display:inline-block;font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;background:rgba(139,158,118,.15);color:var(--sage);margin-bottom:12px;}
+.product-badge.free{background:rgba(192,57,43,.12);color:#E08070;}
+.product-price{position:absolute;top:16px;right:16px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--parch);background:rgba(8,14,6,.8);padding:4px 10px;backdrop-filter:blur(4px);}
+.product-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--parch);line-height:1.25;margin-bottom:10px;}
+.product-desc{font-family:'Source Serif 4',serif;font-size:13.5px;color:var(--text-dim);line-height:1.8;}
+.products-footer{margin-top:3px;padding:28px 28px;background:var(--bg-card);display:flex;align-items:center;justify-content:flex-end;}
+.products-footer a{font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);transition:color .2s;}
+.products-footer a:hover{color:var(--parch)}
+
+.bundle{padding:100px 52px;background:var(--bg-section);border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.bundle-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:6px 14px;background:rgba(212,98,42,.15);color:#E08060;margin-bottom:20px;}
+.bundle-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.1;color:var(--parch);margin-bottom:20px;}
+.bundle-title em{font-style:italic;color:var(--sage);}
+.bundle-list{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:10px;}
+.bundle-list li{font-family:'Source Serif 4',serif;font-size:14.5px;color:var(--text-mid);padding-left:18px;position:relative;}
+.bundle-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--sage);}
+.bundle-visual{position:relative;}
+.bundle-img{width:100%;opacity:.9;}
+
+.pillars{padding:100px 52px;border-bottom:1px solid var(--border);}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
+.pillar-card{background:var(--bg-card);padding:44px 36px;}
+.pillar-num{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--sage-dim);margin-bottom:18px;display:block;}
+.pillar-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--parch);line-height:1.25;margin-bottom:12px;}
+.pillar-body{font-family:'Source Serif 4',serif;font-size:13.5px;color:var(--text-dim);line-height:1.85;}
+
+footer{background:rgba(4,8,3,.98);padding:52px 52px 32px;border-top:1px solid var(--border);}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-logo{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.footer-logo img{width:22px;height:auto;}
+.footer-logo-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--parch);}
+.footer-tagline{font-family:'Source Serif 4',serif;font-size:13px;font-style:italic;color:var(--text-dim);line-height:1.7;}
+.footer-col-label{font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;display:block;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-family:'Source Serif 4',serif;font-size:13.5px;color:var(--text-dim);transition:color .2s;}
+.footer-links a:hover{color:var(--parch)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap;gap:10px;}
+.footer-copy{font-size:11.5px;color:var(--text-muted);font-family:'DM Sans',sans-serif;}
+.footer-quote{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--text-muted);}
+.footer-quote strong{font-style:normal;color:var(--sage-dim);}
+
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero-content{padding:110px 20px 64px}
+  .products,.bundle,.pillars{padding-left:20px;padding-right:20px}
+  .products-grid,.pillars-grid{grid-template-columns:1fr}
+  .bundle{grid-template-columns:1fr;gap:40px}
+  .bundle-visual{display:none}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;padding-left:20px;padding-right:20px}
+  footer{padding-left:20px;padding-right:20px}
+}
+</style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">
+<nav>
+  <a class="nav-logo" href="index.html">
     <img src="cgc-leaf-icon.png" alt="Clean Gut Co.">
-    Clean Gut Co.
+    <span class="nav-logo-text">Clean Gut Co.</span>
   </a>
-  <div class="nav-links">
-    <a href="products.html">Products</a>
-    <a href="about.html">About</a>
-    <a href="guide.html">Free Guide</a>
-    <a href="blog.html">Blog</a>
-    <a href="guide.html" class="nav-cta">Get the free guide</a>
-  </div>
+  <ul class="nav-links">
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guide.html">Free Guide</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="guide.html">Get the free guide</a>
 </nav>
 
-<section class="hero" style="background-image:url('hf_20260529_121006_2524f788-7e09-4f31-972e-84febf32ebbf.png');">
+<section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <h1>Feel like<br>yourself<br><span class="display-italic">again.</span></h1>
-    <p class="hero-sub">Research-backed gut health from someone who spent years feeling tired, foggy, and off — and finally figured out why.</p>
-    <div class="hero-tags">
-      <span>Real research</span><span>Original recipes</span><span>No fear tactics</span><span>Yes, there's lasagna</span>
+    <div class="hero-eyebrow">
+      <div class="hero-line"></div>
+      <span class="eyebrow">Clean Gut Co.</span>
     </div>
-    <div class="hero-ctas">
-      <a href="guide.html" class="btn btn-primary">Get the free 7-Day Guide</a>
-      <a href="products.html" class="btn btn-ghost">See all products</a>
+    <h1 class="hero-title serif">
+      Feel like <br>yourself <br>again.
+    </h1>
+    <p class="hero-sub">Research-backed gut health from someone who spent years feeling tired, foggy, and off &mdash; and finally figured out why.</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Real research. Original recipes. No fear tactics.</p>
+    <div class="hero-badges">
+      <span class="badge">Real research</span>
+      <span class="badge">Original recipes</span>
+      <span class="badge">No fear tactics</span>
+      <span class="badge">Yes, there&apos;s lasagna</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-primary" href="guide.html">Get the free 7-Day Guide</a>
+      <a class="btn-ghost" href="products.html">See all products</a>
     </div>
   </div>
 </section>
 
-<div class="container section">
-  <span class="section-label" style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ember-bright);display:block;margin-bottom:0.75rem;">The Collection</span>
-  <h2 style="font-size:2rem;margin-bottom:2rem;">Everything you need to reset your gut.</h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <a href="products.html">
-        <div class="product-photo">
-          <img src="hf_20260529_115718_389c169a-6925-456b-aff3-fd57699a31aa.png" alt="The Gut Reset Cookbook">
-          <span class="price-pill">$27</span>
-        </div>
-      </a>
-      <div class="product-body">
-        <span class="product-category">Complete Cookbook</span>
-        <h3 class="product-title">The Gut Reset Cookbook</h3>
-        <p class="product-desc">14 gut-healing recipes built around one test: does it support the gut AND taste good enough to make twice? Yes, there's lasagna.</p>
+<section class="products">
+  <span class="eyebrow section-eyebrow">The Collection</span>
+  <h2 class="section-title serif">Everything you need to <em>reset your gut.</em></h2>
+  <div class="products-grid">
+    <a class="product-card" href="products.html">
+      <div style="position:relative">
+        <img class="product-img" src="hf_20260529_115718_389c169a-6925-456b-aff3-fd57699a31aa.png" alt="The Gut Reset Cookbook">
+        <span class="product-price">$27</span>
       </div>
-    </div>
-    <div class="product-card">
-      <a href="products.html">
-        <div class="product-photo">
-          <img src="hf_20260529_173629_60a831c7-fd3f-43da-9bb2-60ce153b84b8.png" alt="Supplement Stack Guide">
-          <span class="price-pill">$17</span>
-        </div>
-      </a>
       <div class="product-body">
-        <span class="product-category">Research Guide</span>
-        <h3 class="product-title">Supplement Stack Guide</h3>
-        <p class="product-desc">6 non-mainstream supplements chosen because the research is genuinely interesting — not because there's a big marketing budget behind them.</p>
+        <span class="product-badge">Complete Cookbook</span>
+        <h3 class="product-name serif">The Gut Reset Cookbook</h3>
+        <p class="product-desc source">14 gut-healing recipes built around one test: does it support the gut AND taste good enough to make twice? Yes, there&apos;s lasagna.</p>
       </div>
-    </div>
-    <div class="product-card">
-      <a href="guide.html">
-        <div class="product-photo">
-          <img src="hf_20260529_173633_4335b028-5c2c-47bc-8e65-5fd51f866777.png" alt="7-Day Gut Reset Guide">
-          <span class="price-pill free">Free</span>
-        </div>
-      </a>
+    </a>
+    <a class="product-card" href="products.html">
+      <div style="position:relative">
+        <img class="product-img" src="hf_20260529_173629_60a831c7-fd3f-43da-9bb2-60ce153b84b8.png" alt="Supplement Stack Guide">
+        <span class="product-price">$17</span>
+      </div>
       <div class="product-body">
-        <span class="product-category">Free Guide</span>
-        <h3 class="product-title">7-Day Gut Reset Guide</h3>
-        <p class="product-desc">One focus per day. The research behind it in plain English. A simple meal idea that fits real life. No perfection required.</p>
+        <span class="product-badge">Research Guide</span>
+        <h3 class="product-name serif">Supplement Stack Guide</h3>
+        <p class="product-desc source">6 non-mainstream supplements chosen because the research is genuinely interesting &mdash; not because there&apos;s a big marketing budget behind them.</p>
       </div>
-    </div>
+    </a>
+    <a class="product-card" href="guide.html">
+      <div style="position:relative">
+        <img class="product-img" src="hf_20260529_173633_4335b028-5c2c-47bc-8e65-5fd51f866777.png" alt="7-Day Gut Reset Guide">
+        <span class="product-price">Free</span>
+      </div>
+      <div class="product-body">
+        <span class="product-badge free">Free Guide</span>
+        <h3 class="product-name serif">7-Day Gut Reset Guide</h3>
+        <p class="product-desc source">One focus per day. The research behind it in plain English. A simple meal idea that fits real life. No perfection required.</p>
+      </div>
+    </a>
   </div>
-  <div style="text-align:center;margin-top:2.5rem;">
-    <a href="products.html" class="btn btn-ghost">See all products &rarr;</a>
+  <div class="products-footer">
+    <a href="products.html">See all products &rarr;</a>
   </div>
-</div>
+</section>
 
-<div class="split-section">
-  <div class="split-copy">
-    <span class="split-label">Best Value &middot; Save $7</span>
-    <h2>The Complete<br><span class="display-italic">Clean Gut Bundle</span></h2>
-    <p>All three products in one file. Everything you need to understand your gut, heal it, and keep it healthy — with real food and honest research.</p>
-    <ul class="check-list">
+<section class="bundle" id="bundle">
+  <div>
+    <span class="bundle-tag">Best Value &middot; Save $7</span>
+    <h2 class="bundle-title serif">The Complete <br><em>Clean Gut Bundle</em></h2>
+    <ul class="bundle-list">
       <li>The Gut Reset Cookbook ($27)</li>
       <li>Supplement Stack Guide ($17)</li>
       <li>7-Day Gut Reset Guide (free)</li>
     </ul>
-    <a href="products.html#bundle" class="btn btn-primary">Get the bundle &mdash; $37</a>
+    <a class="btn-primary" href="products.html#bundle">Get the bundle &mdash; $37</a>
   </div>
-  <div class="split-photo">
-    <img src="hf_20260529_115724_68bf973d-d4c3-45f2-957e-e3f9aaa103cc.png" alt="The Complete Clean Gut Bundle">
+  <div class="bundle-visual">
+    <img class="bundle-img" src="hf_20260529_115724_68bf973d-d4c3-45f2-957e-e3f9aaa103cc.png" alt="The Complete Clean Gut Bundle">
   </div>
-</div>
+</section>
 
-<div class="container section">
-  <span class="section-label" style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ember-bright);display:block;margin-bottom:0.75rem;text-align:center;">The Approach</span>
-  <h2 style="font-size:2rem;margin-bottom:2.5rem;text-align:center;">Three pillars.<br><span class="display-italic">One better-feeling gut.</span></h2>
+<section class="pillars">
+  <span class="eyebrow section-eyebrow">The Approach</span>
+  <h2 class="section-title serif">Three pillars. <em>One better-feeling gut.</em></h2>
   <div class="pillars-grid">
     <div class="pillar-card">
-      <span class="pillar-number">01</span>
-      <h3>Feed the Good Bacteria</h3>
-      <p>Fermented foods, fiber, and real ingredients that give your gut microbiome something to actually work with.</p>
+      <span class="pillar-num">01</span>
+      <h3 class="pillar-title serif">Feed the Good Bacteria</h3>
+      <p class="pillar-body source">Fermented foods, fiber, and real ingredients that give your gut microbiome something to actually work with.</p>
     </div>
     <div class="pillar-card">
-      <span class="pillar-number">02</span>
-      <h3>Reduce Inflammation</h3>
-      <p>Identify the foods and patterns quietly working against you, without an elimination-diet overhaul.</p>
+      <span class="pillar-num">02</span>
+      <h3 class="pillar-title serif">Reduce Inflammation</h3>
+      <p class="pillar-body source">Identify the foods and patterns quietly working against you, without an elimination-diet overhaul.</p>
     </div>
     <div class="pillar-card">
-      <span class="pillar-number">03</span>
-      <h3>Fuel Real Energy</h3>
-      <p>The gut-energy connection, explained in plain English — backed by the research, not a supplement pitch.</p>
+      <span class="pillar-num">03</span>
+      <h3 class="pillar-title serif">Fuel Real Energy</h3>
+      <p class="pillar-body source">The gut-energy connection, explained in plain English &mdash; backed by the research, not a supplement pitch.</p>
     </div>
   </div>
-</div>
+</section>
 
-<footer class="site-footer">
+<footer>
   <div class="footer-top">
     <div>
-      <a href="index.html" class="footer-brand">
+      <a class="footer-logo" href="index.html">
         <img src="cgc-leaf-icon.png" alt="Clean Gut Co.">
-        Clean Gut Co.
+        <span class="footer-logo-text serif">Clean Gut Co.</span>
       </a>
-      <p class="footer-tagline">Real food. Real research.<br>No blueprint required.</p>
+      <p class="footer-tagline source">Real food. Real research.<br>No blueprint required.</p>
     </div>
-    <div class="footer-col">
-      <h4>Products</h4>
-      <a href="products.html">The Gut Reset Cookbook</a>
-      <a href="products.html">Supplement Stack Guide</a>
-      <a href="about.html">About Ryan</a>
+    <div>
+      <span class="footer-col-label">Products</span>
+      <ul class="footer-links">
+        <li><a href="products.html" class="source">The Gut Reset Cookbook</a></li>
+        <li><a href="products.html" class="source">Supplement Stack Guide</a></li>
+        <li><a href="about.html" class="source">About Ryan</a></li>
+      </ul>
     </div>
-    <div class="footer-col">
-      <h4>Get Started</h4>
-      <a href="guide.html">Free 7-Day Guide</a>
-      <a href="products.html#bundle">The Complete Bundle</a>
-      <a href="mailto:hello@cleangutco.com">hello@cleangutco.com</a>
-    </div>
-    <div class="footer-quote">
-      "No Blueprint Required."
-      <span class="sub">Know Your Nature.<br>Fuel Your Power.</span>
+    <div>
+      <span class="footer-col-label">Get Started</span>
+      <ul class="footer-links">
+        <li><a href="guide.html" class="source">Free 7-Day Guide</a></li>
+        <li><a href="products.html#bundle" class="source">The Complete Bundle</a></li>
+        <li><a href="mailto:ryan@cleangutco.com" class="source">ryan@cleangutco.com</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Clean Gut Co. &middot; A Ninya brand &middot; All rights reserved.</span>
-    <span>For informational purposes only. Not medical advice.</span>
+    <p class="footer-copy">&copy; 2026 Clean Gut Co. &middot; A Ninya brand &middot; All rights reserved. For informational purposes only. Not medical advice.</p>
+    <p class="footer-quote serif">&ldquo;No Blueprint Required.&rdquo;<strong> Know Your Nature. Fuel Your Power.</strong></p>
   </div>
 </footer>
 
